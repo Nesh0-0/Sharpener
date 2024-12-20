@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function displaySurname(name) {
+            let surname = await fetch(`http://localhost:3000/${name}`);
+            const h1 = document.getElementById('surname');
+            h1.innerText = await surname.text();
+        }
+    </script>
+</head>
+<body>
+    <button onclick="displaySurname('Aarya')">Aarya</button>
+    <button onclick="displaySurname('nesh')">Nesh</button>
+    <button onclick="displaySurname('suv')">Suv</button>
+    <h1 id="surname"></h1>
+</body>
+</html>
