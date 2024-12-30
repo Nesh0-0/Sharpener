@@ -1,0 +1,2 @@
+###Get 
+GET "https://crudcrud.com/api/9c57188838dc48d68101fdbf570184a9/data"
