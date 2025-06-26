@@ -1,15 +1,23 @@
 const express = require('express');
 const app = express();
 
-app.use("/welcome", (req, res, next) => {
-    console.log('Middleware executed');
-    req.user = 'Guest';
-    next();
+
+app.get('/orders', (req, res) => {
+    res.send('Here is a list of all orders.');
 });
 
-app.get('/welcome', (req, res) => {
-    res.send(`<h1>Welcome, ${req.user}</h1>`);
+app.post('/orders', (req, res) => {
+    res.send('A new order has been created.');
 });
+
+app.get('/users', (req, res) => {
+    res.send('Here is a list of all users.');
+});
+
+app.post('/users', (req, res) => {
+    res.send('A new user has been added.');
+});
+    
 
 
 
