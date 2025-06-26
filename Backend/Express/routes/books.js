@@ -1,15 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-
-
-
 router.get('/', (req, res) => {
-    res.send('Here is a list of all products.');
+    res.send('Here is the list of books!');
 });
 
 router.post('/', (req, res) => {
-    res.send('A new product has been created.');
+    res.send('Book has been added successfully!');
 });
 
 module.exports = router;
