@@ -1,5 +1,5 @@
-const productServices = require('../services/productServices');
 const path = require('path');
+const errorHandling = require('../utils/response');
 
 const getAllProducts = (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'view', 'products.html'));  
@@ -11,7 +11,16 @@ const addProduct = (req, res) => {
 };
 
 const getProductById = (req, res) => {
-    res.send(productServices.getProductByIdService(req.params.id)); 
+    const productId = req.params.id;
+
+    if (productId > 10) {
+        return errorHandling.errorResponse(res, 404, {
+            message: 'Product not found!'
+        })
+    }
+    return errorHandling.successResponse(res, 200, {
+        data:"Product exists for product Id: " + productId
+    })
 };
 
 module.exports = {
