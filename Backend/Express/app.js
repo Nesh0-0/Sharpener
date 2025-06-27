@@ -4,7 +4,8 @@ const cartRouter = require('./routes/cart');
 const productRouter = require('./routes/products');
 const usersRouter = require('./routes/users');
 
-
+app.use(express.static('public'));
+app.use(express.json());
 
 app.use('/cart', cartRouter);
 app.use('/products', productRouter);

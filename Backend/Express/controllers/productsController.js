@@ -6,7 +6,8 @@ const getAllProducts = (req, res) => {
 };
 
 const addProduct = (req, res) => {
-    res.send(productServices.addProductService());
+   console.log(req.body);
+   res.send('Success!');
 };
 
 const getProductById = (req, res) => {
