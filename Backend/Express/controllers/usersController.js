@@ -1,4 +1,4 @@
-const displayUsers = (req, res) => {
+const getAllUsers = (req, res) => {
     res.send('Fetching all users');
 };
 
@@ -11,7 +11,7 @@ const getUserById = (req, res) => {
 };
 
 module.exports = {
-    displayUsers,
+    getAllUsers,
     addUser,
     getUserById
 }
