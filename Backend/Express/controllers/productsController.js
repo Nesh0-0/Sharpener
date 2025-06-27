@@ -1,7 +1,8 @@
 const productServices = require('../services/productServices');
+const path = require('path');
 
 const getAllProducts = (req, res) => {
-    res.send(productServices.getAllProductsService());  
+    res.sendFile(path.join(__dirname, '..', 'view', 'products.html'));  
 };
 
 const addProduct = (req, res) => {
