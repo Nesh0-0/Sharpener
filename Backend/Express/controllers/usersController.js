@@ -1,0 +1,17 @@
+const displayUsers = (req, res) => {
+    res.send('Fetching all users');
+};
+
+const addUser = (req, res) => {
+    res.send('Adding a new user');
+};
+
+const getUserById = (req, res) => {
+    res.send(`Fetching user with Id: ${req.params.id}`);
+};
+
+module.exports = {
+    displayUsers,
+    addUser,
+    getUserById
+}
