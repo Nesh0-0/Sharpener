@@ -22,18 +22,62 @@ connection.connect((err) => {
     console.log('Connected to the database');
 });
 
-const query = `CREATE TABLE Test(
+const createUsers = `CREATE TABLE IF NOT EXISTS Users(
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(20) NOT null,
-    age INT NOT null)`;
+    email VARCHAR(50))`;
 
-connection.execute(query, (err) => {
+const createBuses = `CREATE TABLE IF NOT EXISTS Buses(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    bus_number VARCHAR(20) NOT null,
+    bus_capacity INT NOT null,
+    availableSeats INT NOT null
+)`;
+
+const createBookings = `CREATE TABLE IF NOT EXISTS Bookings(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    seatNumber INT NOT null)`;
+
+const createPayments = `CREATE TABLE IF NOT EXISTS Payments(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    amountPaid INT NOT null,
+    paymentStatus TEXT NOT null
+)`;
+
+connection.execute(createUsers, (err) => {
     if (err) {
         console.log('Error: ', err);
-        connection.end();
+        connection.close();
         return;
     }
-    console.log('Table created successfully');
+    console.log('Users table created successfully');
+})
+
+connection.execute(createBuses, (err) => {
+    if (err){
+        console.log('Error: ', err);
+        connection.close();
+        return;
+    }
+    console.log('Buses table created successfully');
+})
+
+connection.execute(createBookings, (err) => {
+    if (err){
+        console.log('Error: ', err);
+        connection.close();
+        return;
+    }
+    console.log('Bookings table created successfully');
+})
+
+connection.execute(createPayments, (err) => {
+    if (err){
+        console.log('Error: ', err);
+        connection.close();
+        return;
+    }
+    console.log('Payments table created successfully');
 })
 
 
