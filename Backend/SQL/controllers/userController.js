@@ -59,8 +59,24 @@ const updateUser = (req, res) => {
     })
 
 }
+
+
+
+const getAllUsers = (req, res) => {
+    const selectQuery = `SELECT * FROM Users`;
+    db.execute(selectQuery, (err, result) => {
+        console.log('Result:', result);
+        res.status(200).json(result);
+    });
+
+}
+
+
+
+
 module.exports = {
     insertUser,
     deleteUser,
-    updateUser
+    updateUser,
+    getAllUsers
 };
