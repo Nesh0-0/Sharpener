@@ -1,12 +1,10 @@
 const express = require('express');
 const app = express();
 const db = require('./utils/db');
-const userRoutes = require('./routes/userRoutes');
-const busRoutes = require('./routes/busRoutes');
+const studentRoutes = require('./routes/studentRoutes');
 
 app.use(express.json());
-app.use('/users', userRoutes);
-app.use('/buses', busRoutes);
+app.use('/students', studentRoutes);
 
 
 
